@@ -10,6 +10,8 @@
 
 ## 1. Create an OOP-based View, by retrieving data from the MySQL database
 
+class Koneksi yang bertanggung jawab untuk menghubungkan ke database MySQL menggunakan mysqli. Pada konstruktor \_\_construct(), koneksi ke database dilakukan, sehingga class ini dapat digunakan sebagai dasar untuk berinteraksi dengan database di kelas-kelas lainnya.
+
 ```php
 class Koneksi
 {
@@ -30,6 +32,8 @@ class Koneksi
 
 ## 2. Use the \_\_construct as a link to the database
 
+konstruktor `__construct()` bertindak sebagai titik awal untuk menghubungkan ke database MySQL. Setiap kali instance dari class ini dibuat, koneksi ke database secara otomatis dilakukan.
+
 ```php
 public function __construct()
     {
@@ -41,6 +45,8 @@ public function __construct()
 
 ## 3. Apply encapsulation according to the logic of the case study
 
+Enkapsulasi digunakan dengan cara menjadikan properti database (`$host`, `$username`, `$password`, `$dbname`) bersifat private. Hal ini bertujuan agar properti tersebut tidak dapat diakses langsung dari luar class dan hanya bisa diakses melalui fungsi dalam class.
+
 ```php
     private $host = "localhost";
     private $username = "root";
@@ -49,6 +55,8 @@ public function __construct()
 ```
 
 ## 4. Create a derived class using the concept of inheritance
+
+class abstract Operasi yang mewarisi class Koneksi. Class Operasi ini berfungsi sebagai tempat untuk operasi database seperti `selectAll`,`selectByNama`, `selectAllJoin`, `selectByNamaJoin`, dll. Dengan konsep inheritance, class Operasi dapat menggunakan koneksi yang telah dibuat oleh class Koneksi.
 
 ```php
 <?php
@@ -99,6 +107,13 @@ abstract class Operasi extends Koneksi
 ```
 
 ## 5. Apply polymorphism for at least 2 roles according to the case study
+
+Polimorfisme diterapkan dengan membuat beberapa class turunan (Mahasiswa dan Dosen) yang mewarisi class Operasi. Keduanya memiliki metode tblMahasiswa() dan tblNilaiPerbaikan(), namun dengan implementasi yang berbeda sesuai dengan kebutuhan masing-masing.
+
+Contoh penerapan polimorfisme:
+
+- Class `Mahasiswa` menerapkan tblMahasiswa() dan tblNilaiPerbaikan() untuk menampilkan data mahasiswa tertentu yang dicari.
+- Class `Dosen` menerapkan metode yang sama namun menampilkan semua data mahasiswa dan nilai perbaikan.
 
 ```php
 <?php
