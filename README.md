@@ -117,52 +117,6 @@ Contoh penerapan polimorfisme:
 
 ```php
 <?php
-class Koneksi
-{
-    private $host = "localhost";
-    private $username = "root";
-    private $password = "";
-    private $dbname = "pwebTugas2";
-
-    public function __construct()
-    {
-        $db = new mysqli($this->host, $this->username, $this->password, $this->dbname);
-
-        return $db;
-    }
-
-}
-
-abstract class Operasi extends Koneksi
-{
-    public function selectAll($table)
-    {
-        $query = "select * from $table";
-        return parent::__construct()->query($query);
-    }
-
-    public function selectAllJoin()
-    {
-        $query = "select * from mahasiswa join nilai_perbaikan on mahasiswa.mahasiswa_id=nilai_perbaikan.mahasiswa_id";
-        return parent::__construct()->query($query);
-    }
-
-    public function selectByNamaJoin($nama)
-    {
-        $query = "select * from mahasiswa join nilai_perbaikan on mahasiswa.mahasiswa_id=nilai_perbaikan.mahasiswa_id where nama_mhs='$nama'";
-        return parent::__construct()->query($query);
-    }
-    public function selectByName($table, $nama)
-    {
-        $query = "select * from $table where nama_mhs='$nama'";
-        return parent::__construct()->query($query);
-    }
-
-    abstract function tblMahasiswa();
-    abstract function tblNilaiPerbaikan();
-}
-
-
 class Mahasiswa extends Operasi
 {
     public function tblMahasiswa()
