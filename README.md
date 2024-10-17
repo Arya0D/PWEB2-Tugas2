@@ -1,3 +1,106 @@
+# Tugas 2 Praktikum Pemrograman Web 2
+
+## Task:
+
+1. Create an OOP-based View, by retrieving data from the MySQL database
+2. Use the \_\_construct as a link to the database
+3. Apply encapsulation according to the logic of the case study
+4. Create a derived class using the concept of inheritance
+5. Apply polymorphism for at least 2 roles according to the case study
+
+## 1. Create an OOP-based View, by retrieving data from the MySQL database
+
+```php
+class Koneksi
+{
+    private $host = "localhost";
+    private $username = "root";
+    private $password = "";
+    private $dbname = "pwebTugas2";
+
+    public function __construct()
+    {
+        $db = new mysqli($this->host, $this->username, $this->password, $this->dbname);
+
+        return $db;
+    }
+
+}
+```
+
+## 2. Use the \_\_construct as a link to the database
+
+```php
+public function __construct()
+    {
+        $db = new mysqli($this->host, $this->username, $this->password, $this->dbname);
+
+        return $db;
+    }
+```
+
+## 3. Apply encapsulation according to the logic of the case study
+
+```php
+    private $host = "localhost";
+    private $username = "root";
+    private $password = "";
+    private $dbname = "pwebTugas2";
+```
+
+## 4. Create a derived class using the concept of inheritance
+
+```php
+<?php
+class Koneksi
+{
+    private $host = "localhost";
+    private $username = "root";
+    private $password = "";
+    private $dbname = "pwebTugas2";
+
+    public function __construct()
+    {
+        $db = new mysqli($this->host, $this->username, $this->password, $this->dbname);
+
+        return $db;
+    }
+
+}
+
+abstract class Operasi extends Koneksi
+{
+    public function selectAll($table)
+    {
+        $query = "select * from $table";
+        return parent::__construct()->query($query);
+    }
+
+    public function selectAllJoin()
+    {
+        $query = "select * from mahasiswa join nilai_perbaikan on mahasiswa.mahasiswa_id=nilai_perbaikan.mahasiswa_id";
+        return parent::__construct()->query($query);
+    }
+
+    public function selectByNamaJoin($nama)
+    {
+        $query = "select * from mahasiswa join nilai_perbaikan on mahasiswa.mahasiswa_id=nilai_perbaikan.mahasiswa_id where nama_mhs='$nama'";
+        return parent::__construct()->query($query);
+    }
+    public function selectByName($table, $nama)
+    {
+        $query = "select * from $table where nama_mhs='$nama'";
+        return parent::__construct()->query($query);
+    }
+
+    abstract function tblMahasiswa();
+    abstract function tblNilaiPerbaikan();
+}
+```
+
+## 5. Apply polymorphism for at least 2 roles according to the case study
+
+```php
 <?php
 class Koneksi
 {
@@ -287,6 +390,4 @@ class Dosen extends Operasi
 
     }
 }
-
-
-
+```

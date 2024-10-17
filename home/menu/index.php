@@ -58,8 +58,7 @@ if ($_SESSION['role'] == "dosen") {
             if ($menu == "mahasiswa") {
                 $test->tblMahasiswa();
             } else if ($menu == "perbaikanNilai") {
-                echo "test menu perbaikan nilai223";
-                $test->tblMahasiswa();
+                $test->tblNilaiPerbaikan();
             }
             ?>
         </table>
