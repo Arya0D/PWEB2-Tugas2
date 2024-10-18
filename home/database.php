@@ -91,7 +91,7 @@ class Mahasiswa extends Operasi
                 <th>No.Telp</th>
             </tr>
             <?php
-            if (isset($_GET['nama'])) {
+            if (isset($_GET['nama']) && $data->num_rows != 0) {
                 ?>
                 <tr>
                     <td>
@@ -165,7 +165,7 @@ class Mahasiswa extends Operasi
                 <th>Dosen</th>
             </tr>
             <?php
-            if (isset($_GET['nama'])) {
+            if (isset($_GET['nama']) && $data->num_rows != 0) {
                 ?>
                 <tr>
                     <td>

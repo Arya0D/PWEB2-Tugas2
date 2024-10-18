@@ -375,6 +375,8 @@ class Dosen extends Operasi
 
 #### Mode Dosen
 
+Mode Dosen menampilkan semua data mahasiswa dan nilai perbaikan.
+
 ##### Tabel Mahasiswa:
 
 <img src="images/mahasiswa-dosen.png">
@@ -384,6 +386,8 @@ class Dosen extends Operasi
 <img src="images/nilaiPerbaikan-dosen.png">
 
 #### Mode Mahasiswa
+
+Mode Mahasiswa hanya menampilkan data mahasiswa tertentu yang dicari.
 
 ##### Tabel Mahasiswa:
 
