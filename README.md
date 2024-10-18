@@ -360,3 +360,39 @@ class Dosen extends Operasi
     }
 }
 ```
+
+## HASIL:
+
+### Halaman Utama:
+
+<img src="images/halaman-utama.png">
+
+### Halaman Menu:
+
+<img src="images/halaman-menu.png">
+
+### Halaman Data / Tabel:
+
+#### Mode Dosen
+
+##### Tabel Mahasiswa:
+
+<img src="images/mahasiswa-dosen.png">
+
+##### Tabel Nilai Perbaikan:
+
+<img src="images/nilaiPerbaikan-dosen.png">
+
+#### Mode Mahasiswa
+
+##### Tabel Mahasiswa:
+
+<img src="images/mahasiswa-mahasiswa.png">
+<img src="images/mahasiswa-mahasiswa-search.png">
+<img src="images/mahasiswa-mahasiswa-hasil.png">
+
+##### Tabel Nilai Perbaikan:
+
+<img src="images/nilaiPerbaikan-mahasiswa.png">
+<img src="images/nilaiPerbaikan-mahasiswa-search.png">
+<img src="images/nilaiPerbaikan-mahasiswa-hasil.png">
